@@ -6,9 +6,10 @@ on:
 
 jobs:
   build:
-    name: BUild
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install nginx
-        run: apt-get update && apt-get install -y nginx # -y flag is to accept all prompts to prevent stopping the process
+        # https://stackoverflow.com/a/58002908/3343716
+        run: sudo apt-get update && apt-get install -y nginx # -y flag is to accept all prompts to prevent stopping the process
