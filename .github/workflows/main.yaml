@@ -1,0 +1,14 @@
+# https://medium.com/nona-web/safeguarding-nginx-rewrite-rule-deploys-70360b9dc19a
+name: Node CI
+
+on:
+  push:
+
+jobs:
+  build:
+    name: BUild
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install nginx
+        run: apt-get update && apt-get install -y nginx # -y flag is to accept all prompts to prevent stopping the process
