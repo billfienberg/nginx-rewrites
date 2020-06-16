@@ -13,3 +13,7 @@ jobs:
       - name: Install nginx
         # https://stackoverflow.com/a/58002908/3343716
         run: sudo apt-get update && sudo apt-get install -y nginx # -y flag is to accept all prompts to prevent stopping the process
+      - name: Test
+        run: nginx -t -c ./nginx.conf
+      - name: Deploy
+        run: echo Deploying
