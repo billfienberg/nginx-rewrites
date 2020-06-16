@@ -10,10 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Update apt-get
+        run: apt-get update
+      - name: Install sudo
+        run: apt-get -y install sudo
       - name: Install nginx
         # https://stackoverflow.com/a/58002908/3343716
-        run: sudo apt-get update && sudo apt-get install -y nginx # -y flag is to accept all prompts to prevent stopping the process
+        run: sudo apt-get install -y nginx # -y flag is to accept all prompts to prevent stopping the process
       - name: Test
-        run: sudo nginx -c 'foo.conf' -t
+        # run: cd / && ls && sudo nginx -c foo.conf -t
+        run: sudo nginx -c /github/workspace/foo.conf -t
       - name: Deploy
         run: echo Deploying
