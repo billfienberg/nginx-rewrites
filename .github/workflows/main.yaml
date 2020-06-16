@@ -15,6 +15,6 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y nginx # -y flag is to accept all prompts to prevent stopping the process
       - name: Test
         working-directory: ./
-        run: sudo nginx -t -c ./nginx.conf
+        run: sudo nginx -t -c nginx.conf
       - name: Deploy
         run: echo Deploying
